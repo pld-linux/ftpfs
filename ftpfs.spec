@@ -17,6 +17,7 @@ Source0:	http://dl.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
 # Source0-md5:	5e160de7f7237cdb27e5bc6f234e8c14
 Patch0:		%{name}-opt.patch
 %{!?_without_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
+BuildRequires:	rpmbuild(macros) >= 1.118
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,10 +82,10 @@ install -D ftpmount/ftpmount $RPM_BUILD_ROOT%{_sbindir}/ftpmount
 rm -rf $RPM_BUILD_ROOT
 
 %post	-n kernel%{smpstr}-net-ftpfs
-/sbin/depmod -a %{!?_without_dist_kernel:-F /boot/System.map-%{_kernel_ver} }%{_kernel_ver}
+%depmod %{_kernel_ver}
 
 %postun -n kernel%{smpstr}-net-ftpfs
-/sbin/depmod -a %{!?_without_dist_kernel:-F /boot/System.map-%{_kernel_ver} }%{_kernel_ver}
+%depmod %{_kernel_ver}
 
 %files -n kernel%{smpstr}-net-ftpfs
 %defattr(644,root,root,755)
