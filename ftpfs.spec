@@ -1,7 +1,7 @@
 Summary:	FTP File System 
 Summary(pl):	FTP File System 
 Name:		ftpfs
-Version:	0.2.2
+Version:	0.3.0
 Release:	1
 License:	GPL
 Group:		Base/Kernel
@@ -25,7 +25,7 @@ FTP File System
 
 %prep
 
-%setup  -q -n ftpfs-0.2.2-k2.4
+%setup  -q -n ftpfs-0.3.0-k2.4
 
 %build
 %{__make}
