@@ -6,8 +6,8 @@
 Summary:	FTP File System
 Summary(pl):	System plików FTP
 Name:		ftpfs
-Version:	0.6.0
-Release:	2
+Version:	0.6.2
+Release:	1
 License:	GPL
 Group:		Base/Kernel
 Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
