@@ -7,9 +7,9 @@ License:	GPL
 Group:		Base/Kernel
 Group(de):	Grundsätzlich/Kern
 Group(pl):	Podstawowe/J±dro
-#Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
-Source0: 	http://ftp1.sourceforge.net/ftpfs/ftpfs-0.2.1-k2.4.tar.gz
+Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
 BuildRequires:	kernel-headers >= 2.4
+BuildRequires:	awk
 BuildRequires:	tar
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
