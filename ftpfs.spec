@@ -14,6 +14,7 @@ Release:	1
 License:	GPL
 Group:		Base/Kernel
 Source0:	http://dl.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
+# Source0-md5:	5e160de7f7237cdb27e5bc6f234e8c14
 Patch0:		%{name}-opt.patch
 %{!?_without_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
