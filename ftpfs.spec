@@ -3,8 +3,8 @@
 %define		smpstr		%{?_with_smp:-smp}
 %define		smp		%{?_with_smp:1}%{!?_with_smp:0}
 
-Summary:	FTP File System 
-Summary(pl):	System plików FTP 
+Summary:	FTP File System
+Summary(pl):	System plików FTP
 Name:		ftpfs
 Version:	0.6.0
 Release:	2
@@ -83,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun -n kernel%{smpstr}-net-ftpfs
 /sbin/depmod -a
-	
+
 %files -n kernel%{smpstr}-net-ftpfs
 %defattr(644,root,root,755)
 %doc docs *.gz
