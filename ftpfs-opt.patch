@@ -1,0 +1,24 @@
+diff -Nur ftpfs-0.6.0-k2.4.orig/ftpfs/Makefile ftpfs-0.6.0-k2.4/ftpfs/Makefile
+--- ftpfs-0.6.0-k2.4.orig/ftpfs/Makefile	Wed Jul 25 22:43:58 2001
++++ ftpfs-0.6.0-k2.4/ftpfs/Makefile	Mon Sep  3 21:29:13 2001
+@@ -8,7 +8,7 @@
+ 
+ # makemake variables
+ 
+-DEPENDFLAGS := -O2 -fomit-frame-pointer -fno-strict-aliasing -pipe -mpreferred-stack-boundary=2  -Wall ${SEARCHDIRS} -DMODULE -D__KERNEL__ -DLINUX -DEXPORT_SYMTAB
++DEPENDFLAGS := $(OPT) -fomit-frame-pointer -fno-strict-aliasing -pipe -mpreferred-stack-boundary=2  -Wall ${SEARCHDIRS} -DMODULE -D__KERNEL__ -DLINUX -DEXPORT_SYMTAB
+ # -DFTPFS_DEBUG -DFTPFS_VERBOSE
+ 
+ # C preprocessor (C, C++, FORTRAN)
+diff -Nur ftpfs-0.6.0-k2.4.orig/ftpmount/Makefile ftpfs-0.6.0-k2.4/ftpmount/Makefile
+--- ftpfs-0.6.0-k2.4.orig/ftpmount/Makefile	Tue Aug 14 19:03:22 2001
++++ ftpfs-0.6.0-k2.4/ftpmount/Makefile	Mon Sep  3 21:30:50 2001
+@@ -10,7 +10,7 @@
+ 
+ # makemake variables
+ 
+-DEPENDFLAGS  := -g -Wall -Werror ${SEARCHDIRS}
++DEPENDFLAGS  := $(OPT) -Wall -Werror ${SEARCHDIRS}
+ TOUCHHEADERS := ${MYCODEDIR}/*.h
+ 
+ # C preprocessor (C, C++, FORTRAN)
