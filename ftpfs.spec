@@ -10,8 +10,6 @@ Version:	0.6.0
 Release:	2
 License:	GPL
 Group:		Base/Kernel
-Group(de):	Grundsätzlich/Kern
-Group(pl):	Podstawowe/J±dro
 Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
 Patch0:		%{name}-opt.patch
 %{!?no_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
@@ -34,8 +32,6 @@ Summary:	FTP File System - kernel module
 Summary(pl):	System plików FTP - modu³ j±dra
 Release:	%{release}@%{_kernel_ver_str}
 Group:		Base/Kernel
-Group(de):	Grundsätzlich/Kern
-Group(pl):	Podstawowe/J±dro
 Prereq:		/sbin/depmod
 Obsoletes:	ftpfs
 Provides:	ftpfs = %{version}
@@ -56,8 +52,6 @@ lokalnych. Ten pakiet zawiera modu³ j±dra do ftpfs.
 Summary:	FTP File System mounting utility
 Summary(pl):	Narzêdzie do montowania systemów plików FTP
 Group:		Applications/System
-Group(de):	Applikationen/System
-Group(pl):	Aplikacje/System
 Requires:	ftpfs = %{version}
 
 %description -n ftpmount
