@@ -1,21 +1,23 @@
 %define		_kernel_ver	%(grep UTS_RELEASE %{_kernelsrcdir}/include/linux/version.h 2>/dev/null | cut -d'"' -f2)
-%define		smpstr		%{?_with_smp:smp}%{!?_with_smp:up}
+%define		_kernel_ver_str	%(echo %{_kernel_ver} | sed s/-/_/g)
+%define		smpstr		%{?_with_smp:-smp}
 %define		smp		%{?_with_smp:1}%{!?_with_smp:0}
 
 %define		rel		1
 Summary:	FTP File System 
 Summary(pl):	System plików FTP 
-Name:		ftpfs
+Name:		kernel%{smpstr}-net-ftpfs
 Version:	0.6.0
-Release:	%{rel}@%{_kernel_ver}%{smpstr}
+Release:	%{rel}@%{_kernel_ver_str}
 License:	GPL
 Group:		Base/Kernel
 Group(de):	Grundsätzlich/Kern
 Group(pl):	Podstawowe/J±dro
-Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
-Patch0:		%{name}-opt.patch
+Source0:	http://ftp1.sourceforge.net/ftpfs/ftpfs-%{version}-k2.4.tar.gz
+Patch0:		ftpfs-opt.patch
 %{!?no_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
 Prereq:		/sbin/depmod
+Obsoletes:	ftpfs
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -45,7 +47,7 @@ FTP File System mounting utility.
 Narzêdzie do montowania systemów plików FTP.
 
 %prep
-%setup -q -n %{name}-%{version}-k2.4
+%setup -q -n ftpfs-%{version}-k2.4
 %patch -p1
 
 %build
