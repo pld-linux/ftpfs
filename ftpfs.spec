@@ -71,8 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 install -D ftpfs/ftpfs.o $RPM_BUILD_ROOT/lib/modules/%{_kernel_ver}/misc/ftpfs.o
 install -D ftpmount/ftpmount $RPM_BUILD_ROOT%{_sbindir}/ftpmount
 
-gzip -9nf CHANGELOG TODO ftpmount/README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -84,10 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n kernel%{smpstr}-net-ftpfs
 %defattr(644,root,root,755)
-%doc docs *.gz
+%doc docs CHANGELOG TODO
 /lib/modules/*/*/*
 
 %files -n ftpmount
 %defattr(644,root,root,755)
-%doc ftpmount/*.gz
+%doc ftpmount/README
 %attr(755,root,root) %{_sbindir}/ftpmount
