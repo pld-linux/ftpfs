@@ -80,10 +80,10 @@ install -D ftpmount/ftpmount $RPM_BUILD_ROOT%{_sbindir}/ftpmount
 rm -rf $RPM_BUILD_ROOT
 
 %post	-n kernel%{smpstr}-net-ftpfs
-/sbin/depmod -a -F /boot/System.map-%{_kernel_ver} %{_kernel_ver}
+/sbin/depmod -a %{!?_without_dist_kernel:-F /boot/System.map-%{_kernel_ver} }%{_kernel_ver}
 
 %postun -n kernel%{smpstr}-net-ftpfs
-/sbin/depmod -a -F /boot/System.map-%{_kernel_ver} %{_kernel_ver}
+/sbin/depmod -a %{!?_without_dist_kernel:-F /boot/System.map-%{_kernel_ver} }%{_kernel_ver}
 
 %files -n kernel%{smpstr}-net-ftpfs
 %defattr(644,root,root,755)
