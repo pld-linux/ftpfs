@@ -1,13 +1,14 @@
 Summary:	FTP File System 
 Summary(pl):	FTP File System 
 Name:		ftpfs
-Version:	0.1.1
+Version:	0.2.1
 Release:	1
 License:	GPL
 Group:		Base/Kernel
 Group(de):	Grundsätzlich/Kern
 Group(pl):	Podstawowe/J±dro
-Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
+#Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
+Source0: 	http://ftp1.sourceforge.net/ftpfs/ftpfs-0.2.1-k2.4.tar.gz
 BuildRequires:	kernel-headers >= 2.4
 BuildRequires:	tar
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -23,7 +24,7 @@ FTP File System
 
 %prep
 
-%setup  -q -n ftpfs0.1.1-k2.4
+%setup  -q -n ftpfs-0.2.1-k2.4
 
 %build
 %{__make}
