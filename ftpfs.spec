@@ -1,11 +1,10 @@
+# TODO: UP/SMP modules
 #
 # Conditional build:
-# _without_dist_kernel	- without kernel from distribution
+%bcond_without 	dist_kernel	# without kernel from distribution
 #
-# TODO: UP/SMP modules
-%define		smpstr		%{?_with_smp:-smp}
-%define		smp		%{?_with_smp:1}%{!?_with_smp:0}
-
+%define		smpstr		%{?with_smp:-smp}
+%define		smp		%{?with_smp:1}%{!?with_smp:0}
 Summary:	FTP File System
 Summary(pl):	System plików FTP
 Name:		ftpfs
@@ -16,7 +15,7 @@ Group:		Base/Kernel
 Source0:	http://dl.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
 # Source0-md5:	5e160de7f7237cdb27e5bc6f234e8c14
 Patch0:		%{name}-opt.patch
-%{!?_without_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
+%{?with_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
 BuildRequires:	rpmbuild(macros) >= 1.118
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
