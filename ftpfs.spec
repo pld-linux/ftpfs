@@ -11,6 +11,7 @@ Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
 BuildRequires:	kernel-headers >= 2.4
 BuildRequires:	awk
 BuildRequires:	tar
+Prereq:		/sbin/depmod
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
