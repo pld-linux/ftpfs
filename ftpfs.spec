@@ -1,3 +1,8 @@
+#
+# Conditional build:
+# _without_dist_kernel	- without kernel from distribution
+#
+# TODO: UP/SMP modules
 %define		smpstr		%{?_with_smp:-smp}
 %define		smp		%{?_with_smp:1}%{!?_with_smp:0}
 
@@ -8,9 +13,9 @@ Version:	0.6.2
 Release:	1
 License:	GPL
 Group:		Base/Kernel
-Source0:	http://ftp1.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
+Source0:	http://dl.sourceforge.net/ftpfs/%{name}-%{version}-k2.4.tar.gz
 Patch0:		%{name}-opt.patch
-%{!?no_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
+%{!?_without_dist_kernel:BuildRequires:	kernel-headers >= 2.4}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +35,7 @@ Summary:	FTP File System - kernel module
 Summary(pl):	System plików FTP - modu³ j±dra
 Release:	%{release}@%{_kernel_ver_str}
 Group:		Base/Kernel
-Prereq:		/sbin/depmod
+Requires(post,postun):	/sbin/depmod
 Obsoletes:	ftpfs
 Provides:	ftpfs = %{version}
 
@@ -74,11 +79,11 @@ install -D ftpmount/ftpmount $RPM_BUILD_ROOT%{_sbindir}/ftpmount
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n kernel%{smpstr}-net-ftpfs
-/sbin/depmod -a
+%post	-n kernel%{smpstr}-net-ftpfs
+/sbin/depmod -a -F /boot/System.map-%{_kernel_ver} %{_kernel_ver}
 
 %postun -n kernel%{smpstr}-net-ftpfs
-/sbin/depmod -a
+/sbin/depmod -a -F /boot/System.map-%{_kernel_ver} %{_kernel_ver}
 
 %files -n kernel%{smpstr}-net-ftpfs
 %defattr(644,root,root,755)
