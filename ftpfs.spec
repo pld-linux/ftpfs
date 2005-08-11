@@ -1,7 +1,7 @@
 # TODO: UP/SMP modules
 #
 # Conditional build:
-%bcond_without 	dist_kernel	# without kernel from distribution
+%bcond_without	dist_kernel	# without kernel from distribution
 #
 %define		smpstr		%{?with_smp:-smp}
 %define		smp		%{?with_smp:1}%{!?with_smp:0}
