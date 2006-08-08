@@ -67,7 +67,7 @@ Narzêdzie do montowania systemów plików FTP.
 
 %prep
 %setup -q -n ftpfs-%{version}-k2.4
-%patch -p1
+%patch0 -p1
 
 %build
 %{__make} OPT="%{rpmcflags}"
