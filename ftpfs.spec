@@ -6,7 +6,7 @@
 %define		smpstr		%{?with_smp:-smp}
 %define		smp		%{?with_smp:1}%{!?with_smp:0}
 Summary:	FTP File System
-Summary(pl):	System plików FTP
+Summary(pl.UTF-8):   System plikÃ³w FTP
 Name:		ftpfs
 Version:	0.6.2
 Release:	1
@@ -26,15 +26,15 @@ volume mounting capabilities. That is, you can "mount" FTP shared
 directories in your very personal file system and take advantage of
 local files ops.
 
-%description -l pl
-System plików FTP jest modu³em j±dra rozszerzaj±cym VFS o mo¿liwo¶æ
-montowania wolumenów FTP. Oznacza to, ¿e mo¿esz podmontowaæ katalogi
-FTP do swojego systemu plików i korzystaæ z nich jak z plików
+%description -l pl.UTF-8
+System plikÃ³w FTP jest moduÅ‚em jÄ…dra rozszerzajÄ…cym VFS o moÅ¼liwoÅ›Ä‡
+montowania wolumenÃ³w FTP. Oznacza to, Å¼e moÅ¼esz podmontowaÄ‡ katalogi
+FTP do swojego systemu plikÃ³w i korzystaÄ‡ z nich jak z plikÃ³w
 lokalnych.
 
 %package -n kernel%{smpstr}-net-ftpfs
 Summary:	FTP File System - kernel module
-Summary(pl):	System plików FTP - modu³ j±dra
+Summary(pl.UTF-8):   System plikÃ³w FTP - moduÅ‚ jÄ…dra
 Release:	%{release}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
@@ -47,23 +47,23 @@ volume mounting capabilities. That is, you can "mount" FTP shared
 directories in your very personal file system and take advantage of
 local files ops. This package contains ftpfs kernel module.
 
-%description -n kernel%{smpstr}-net-ftpfs -l pl
-System plików FTP jest modu³em j±dra rozszerzaj±cym VFS o mo¿liwo¶æ
-montowania wolumenów FTP. Oznacza to, ¿e mo¿esz podmontowaæ katalogi
-FTP do swojego systemu plików i korzystaæ z nich jak z plików
-lokalnych. Ten pakiet zawiera modu³ j±dra do ftpfs.
+%description -n kernel%{smpstr}-net-ftpfs -l pl.UTF-8
+System plikÃ³w FTP jest moduÅ‚em jÄ…dra rozszerzajÄ…cym VFS o moÅ¼liwoÅ›Ä‡
+montowania wolumenÃ³w FTP. Oznacza to, Å¼e moÅ¼esz podmontowaÄ‡ katalogi
+FTP do swojego systemu plikÃ³w i korzystaÄ‡ z nich jak z plikÃ³w
+lokalnych. Ten pakiet zawiera moduÅ‚ jÄ…dra do ftpfs.
 
 %package -n ftpmount
 Summary:	FTP File System mounting utility
-Summary(pl):	Narzêdzie do montowania systemów plików FTP
+Summary(pl.UTF-8):   NarzÄ™dzie do montowania systemÃ³w plikÃ³w FTP
 Group:		Applications/System
 Requires:	ftpfs = %{version}
 
 %description -n ftpmount
 FTP File System mounting utility.
 
-%description -n ftpmount -l pl
-Narzêdzie do montowania systemów plików FTP.
+%description -n ftpmount -l pl.UTF-8
+NarzÄ™dzie do montowania systemÃ³w plikÃ³w FTP.
 
 %prep
 %setup -q -n ftpfs-%{version}-k2.4
