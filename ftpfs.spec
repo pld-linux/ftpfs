@@ -6,7 +6,7 @@
 %define		smpstr		%{?with_smp:-smp}
 %define		smp		%{?with_smp:1}%{!?with_smp:0}
 Summary:	FTP File System
-Summary(pl.UTF-8):   System plików FTP
+Summary(pl.UTF-8):	System plików FTP
 Name:		ftpfs
 Version:	0.6.2
 Release:	1
@@ -34,7 +34,7 @@ lokalnych.
 
 %package -n kernel%{smpstr}-net-ftpfs
 Summary:	FTP File System - kernel module
-Summary(pl.UTF-8):   System plików FTP - moduł jądra
+Summary(pl.UTF-8):	System plików FTP - moduł jądra
 Release:	%{release}@%{_kernel_ver_str}
 Group:		Base/Kernel
 Requires(post,postun):	/sbin/depmod
@@ -55,7 +55,7 @@ lokalnych. Ten pakiet zawiera moduł jądra do ftpfs.
 
 %package -n ftpmount
 Summary:	FTP File System mounting utility
-Summary(pl.UTF-8):   Narzędzie do montowania systemów plików FTP
+Summary(pl.UTF-8):	Narzędzie do montowania systemów plików FTP
 Group:		Applications/System
 Requires:	ftpfs = %{version}
 
